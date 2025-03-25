@@ -68,6 +68,13 @@
         # imperatively with `brew tap`.
         mutableTaps = false;
       };
+
+      homebrew = {
+        enable = true;
+        casks = [
+          "the-unarchiver"
+        ];
+      };
     };
   in
   {
