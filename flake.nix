@@ -34,6 +34,16 @@
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
+
+      # Install the fonts
+      fonts.packages = with pkgs; [
+        nerd-fonts.fira-code
+        nerd-fonts.inconsolata
+        nerd-fonts.jetbrains-mono
+        # Add Wenquanyi Microsoft Ya Hei, a nice-looking Chinese font.
+        wqy_microhei
+        font-awesome
+      ];
     };
   in
   {
