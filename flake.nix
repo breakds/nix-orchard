@@ -79,7 +79,6 @@
         brews = [
           "mas"
           "imagemagick"
-          "cursor"
         ];
         casks = [];
         onActivation.cleanup = "zap";
