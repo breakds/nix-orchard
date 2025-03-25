@@ -12,6 +12,8 @@
     homebrew-core.flake = false;
     homebrew-cask.url = "github:homebrew/homebrew-core";
     homebrew-cask.flake = false;
+    homebrew-bundle.url = "github:homebrew/homebrew-bundle";
+    homebrew-bundle.flake = false;
   };
 
   outputs = inputs@{ self, nix-darwin, nix-homebrew, nixpkgs, ... }:
@@ -67,6 +69,7 @@
         taps = {
           "homebrew/homebrew-core" = inputs.homebrew-core;
           "homebrew/homebrew-cask" = inputs.homebrew-cask;
+          "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
         };
 
         # Fully declarative tap management. Taps can no longer be added
