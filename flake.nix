@@ -72,7 +72,7 @@
       homebrew = {
         enable = true;
         casks = [
-          "the-unarchiver"
+          "iina"
         ];
       };
     };
