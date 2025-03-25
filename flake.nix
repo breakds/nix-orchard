@@ -72,7 +72,7 @@
       homebrew = {
         enable = true;
         brews = [
-          "iina"
+          "imagemagick"
         ];
       };
     };
