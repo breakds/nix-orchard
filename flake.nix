@@ -42,6 +42,11 @@
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
 
+      system.defaults = {
+        dock.autohide = true;
+        NSGlobalDomain.AppleICUForce24HourTime = true;
+      };
+
       # Install the fonts
       fonts.packages = with pkgs; [
         nerd-fonts.fira-code
