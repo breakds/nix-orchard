@@ -59,10 +59,10 @@
         enable = true;
         enableRosetta = true;
 
-        # taps = {
-        #   "homebrew/homebrew-core" = inputs.homebrew-core;
-        #   "homebrew/homebrew-cask" = inputs.homebrew-cask;
-        # };
+        taps = {
+          "homebrew/homebrew-core" = inputs.homebrew-core;
+          "homebrew/homebrew-cask" = inputs.homebrew-cask;
+        };
 
         # Fully declarative tap management. Taps can no longer be added
         # imperatively with `brew tap`.
@@ -71,7 +71,7 @@
 
       homebrew = {
         enable = true;
-        casks = [
+        brews = [
           "iina"
         ];
       };
