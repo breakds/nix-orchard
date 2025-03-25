@@ -83,7 +83,10 @@
           "mas"
           "imagemagick"
         ];
-        casks = [ "iina" ];
+        casks = [
+          "iina"
+          "windsurf"
+        ];
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
