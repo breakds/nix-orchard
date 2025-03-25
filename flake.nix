@@ -10,7 +10,7 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     homebrew-core.url = "github:homebrew/homebrew-core";
     homebrew-core.flake = false;
-    homebrew-cask.url = "github:homebrew/homebrew-core";
+    homebrew-cask.url = "github:homebrew/homebrew-cask";
     homebrew-cask.flake = false;
     homebrew-bundle.url = "github:homebrew/homebrew-bundle";
     homebrew-bundle.flake = false;
