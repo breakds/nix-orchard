@@ -71,9 +71,9 @@
 
       homebrew = {
         enable = true;
-        brews = [
-          "imagemagick"
-        ];
+        brews = [ "mas" ];
+        casks = [];
+        onActivation.cleanup = "zap";
       };
     };
   in
