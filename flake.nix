@@ -71,7 +71,10 @@
 
       homebrew = {
         enable = true;
-        brews = [ "mas" ];
+        brews = [
+          "mas"
+          "imagemagick"
+        ];
         casks = [];
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
