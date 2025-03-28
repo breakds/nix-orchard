@@ -25,24 +25,8 @@
   outputs = inputs@{ self, flake-parts, ... }: flake-parts.lib.mkFlake { inherit inputs; } {
     systems = [ "aarch64-darwin" ];
 
-    options = let lib = inputs.nixpkgs.lib; in {
-      flake = flake-parts.lib.mkSubmoduleOptions {
-        darwinModules = lib.mkOption {
-          type = lib.types.lazyAttrsOf lib.types.deferredModule;
-          default = { };
-          apply = lib.mapAttrs (k: v: { imports = [ v ]; });          
-          description = ''
-          Darwin modules.
-
-          You may use this for reusable pieces of configuration, service modules, etc.
-        '';
-        };
-      };
-    };
-
     imports = [
       ./modules/part.nix
-      ./home/orchard.nix
       ./machines/honeycrisp/part.nix
     ];
 
