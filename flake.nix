@@ -30,7 +30,7 @@
         darwinModules = lib.mkOption {
           type = lib.types.lazyAttrsOf lib.types.deferredModule;
           default = { };
-          apply = lib.mapAttrs (k: v: { _file = "${toString moduleLocation}#darwinModules.${k}"; imports = [ v ]; });
+          apply = lib.mapAttrs (k: v: { imports = [ v ]; });          
           description = ''
           Darwin modules.
 
