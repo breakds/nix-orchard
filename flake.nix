@@ -25,12 +25,12 @@
   outputs = inputs@{ self, flake-parts, ... }: flake-parts.lib.mkFlake { inherit inputs; } {
     systems = [ "aarch64-darwin" ];
 
-    options = {
+    options = let lib = inputs.nixpkgs.lib; in {
       flake = flake-parts.lib.mkSubmoduleOptions {
-        darwinModules = nixpkgs.lib.mkOption {
-          type = nixpkgs.lib.types.lazyAttrsOf types.deferredModule;
+        darwinModules = lib.mkOption {
+          type = lib.types.lazyAttrsOf types.deferredModule;
           default = { };
-          apply = nixpkgs.lib.mapAttrs (k: v: { _file = "${toString moduleLocation}#darwinModules.${k}"; imports = [ v ]; });
+          apply = lib.mapAttrs (k: v: { _file = "${toString moduleLocation}#darwinModules.${k}"; imports = [ v ]; });
           description = ''
           Darwin modules.
 
