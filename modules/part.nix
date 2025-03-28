@@ -51,6 +51,8 @@ in {
           enableZshIntegration = true;
         };
 
+        home.homeDirectory = "/Users/cassandra";
+
         home.stateVersion = "25.05";
       };
     };
