@@ -11,6 +11,7 @@ in {
       home-manager.darwinModules.home-manager
       self.darwinModules.darwin-version
       self.darwinModules.homebrew
+      self.darwinModules.home-orchard
       ./.
     ];
   };
