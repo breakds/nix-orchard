@@ -41,7 +41,6 @@
 
   # Homebrew
   nix-homebrew.user = "cassandra";
-
   homebrew = {
     brews = [
       "mas"

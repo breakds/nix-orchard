@@ -28,7 +28,6 @@ in {
       
       homebrew = {
         enable = true;
-        enableRosetta = true;
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
