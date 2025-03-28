@@ -49,6 +49,7 @@
     casks = [
       "iina"
       "windsurf"
+      "visual-studio-code"
     ];
   };
 }
