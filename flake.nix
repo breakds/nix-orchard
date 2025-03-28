@@ -25,6 +25,21 @@
   outputs = inputs@{ self, flake-parts, ... }: flake-parts.lib.mkFlake { inherit inputs; } {
     systems = [ "aarch64-darwin" ];
 
+    options = {
+      flake = flake-parts.lib.mkSubmoduleOptions {
+        darwinModules = nixpkgs.lib.mkOption {
+          type = nixpkgs.lib.types.lazyAttrsOf types.deferredModule;
+          default = { };
+          apply = nixpkgs.lib.mapAttrs (k: v: { _file = "${toString moduleLocation}#darwinModules.${k}"; imports = [ v ]; });
+          description = ''
+          Darwin modules.
+
+          You may use this for reusable pieces of configuration, service modules, etc.
+        '';
+        };
+      };
+    };
+
     imports = [
       ./modules/part.nix
       ./home/orchard.nix
