@@ -40,21 +40,21 @@ in {
       };
     };
 
-    home-honeycrisp = {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      # home-manager.users.cassandra = {config, pkgs, ... }: {
-      #   programs.direnv = {
-      #     enable = true;
-      #     nix-direnv.enable = true;
-      #     enableBashIntegration = true;
-      #     enableZshIntegration = true;
-      #   };
+    home-honeycrisp = { pkgs, ... }: {
+      config = {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.cassandra = {config, pkgs, ... }: {
+          programs.direnv = {
+            enable = true;
+            nix-direnv.enable = true;
+            enableBashIntegration = true;
+            enableZshIntegration = true;
+          };
 
-      #   home.homeDirectory = "/Users/cassandra";
-
-      #   home.stateVersion = "25.05";
-      # };
+          home.stateVersion = "25.05";
+        };
+      };
     };
   };
 }
