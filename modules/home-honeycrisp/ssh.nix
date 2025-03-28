@@ -8,7 +8,7 @@ in {
       enable = true;
       hashKnownHosts = true;
 
-      matchBlocks = [
+      matchBlocks = {
         "*" = {
           identityFile = cassandra-zen;
         };
@@ -28,7 +28,7 @@ in {
           user = "ec2-user";
           identityFile = "~/.ssh/a2s-private-1.pem";
         };
-      ];
+      };
     };
   };
 }
