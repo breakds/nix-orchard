@@ -3,7 +3,7 @@
 let self = inputs.self;
 
 in {
-  flake.darwinModules.honeycrisp-home = {
+  flake.darwinModules.home-honeycrisp = {
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
     home-manager.users.cassandra = {config, pkgs, ... }: {
