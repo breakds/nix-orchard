@@ -45,6 +45,7 @@
     brews = [
       "mas"
       "imagemagick"
+      "visual-studio-code"
     ];
     casks = [
       "iina"
