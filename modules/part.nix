@@ -2,6 +2,11 @@
 
 {
   flake.darwinModules = {
+    darwin-version = { pkgs, ... }: {
+      # Set Git commit hash for darwin-version.      
+      system.configurationRevision = self.rev or self.dirtyRev or null;
+    };
+    
     # TODO: Also import nix-homebrew here.
     homebrew = { pkgs, ... }: {
       nix-homebrew = {
