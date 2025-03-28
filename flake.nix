@@ -28,7 +28,7 @@
     options = let lib = inputs.nixpkgs.lib; in {
       flake = flake-parts.lib.mkSubmoduleOptions {
         darwinModules = lib.mkOption {
-          type = lib.types.lazyAttrsOf types.deferredModule;
+          type = lib.types.lazyAttrsOf lib.types.deferredModule;
           default = { };
           apply = lib.mapAttrs (k: v: { _file = "${toString moduleLocation}#darwinModules.${k}"; imports = [ v ]; });
           description = ''
