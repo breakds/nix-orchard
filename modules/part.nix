@@ -49,6 +49,8 @@ in {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.cassandra = {config, pkgs, ... }: {
+          imports = [ ./home-honeycrisp/ssh.nix ];
+
           programs.direnv = {
             enable = true;
             nix-direnv.enable = true;
