@@ -9,7 +9,6 @@ in {
       system.configurationRevision = self.rev or self.dirtyRev or null;
     };
 
-    # TODO: Also import nix-homebrew here.
     homebrew = { pkgs, ... }: {
       imports = [
         inputs.nix-homebrew.darwinModules.nix-homebrew
@@ -42,6 +41,11 @@ in {
 
     home-honeycrisp = { pkgs, ... }: {
       config = {
+        users.users.cassandra = {
+          name = "cassandra";
+          home = "/Users/cassandra";
+        };
+
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.cassandra = {config, pkgs, ... }: {
