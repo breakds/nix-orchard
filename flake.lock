@@ -17,19 +17,75 @@
         "type": "github"
       }
     },
-    "homebrew-cask": {
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741352980,
+        "narHash": "sha256-+u2UunDA4Cl5Fci3m7S643HzKmIDAe+fiXrLqYsR2fs=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "f4330d22f1c5d2ba72d3d22df5597d123fdb60a9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1743136572,
+        "narHash": "sha256-uwaVrKgi6g1TUq56247j6QvvFtYHloCkjCrEpGBvV54=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "1efd2503172016a6742c87b47b43ca2c8145607d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "homebrew-bundle": {
       "flake": false,
       "locked": {
-        "lastModified": 1742933168,
-        "narHash": "sha256-BWIW/phuHnPCzsiuaQAUzdXCLET62oDUvOwOtn0pcXg=",
+        "lastModified": 1742475687,
+        "narHash": "sha256-GoaP8X0livBYzfb8kRCyf3z61+sXSh6tE5gMZtxjLQA=",
         "owner": "homebrew",
-        "repo": "homebrew-core",
-        "rev": "5fc170be234c8e72ee2245941407e7613a93f75c",
+        "repo": "homebrew-bundle",
+        "rev": "dc4311afc4c34833b288cd4978421803ec2c9ff8",
         "type": "github"
       },
       "original": {
         "owner": "homebrew",
-        "repo": "homebrew-core",
+        "repo": "homebrew-bundle",
+        "type": "github"
+      }
+    },
+    "homebrew-cask": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743178356,
+        "narHash": "sha256-d6U15vEgmuzQcJDSmT3dQiM6sYyKNC+3cJxWFUp44uI=",
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "rev": "638f83eb37f5c3e895a62994896fc81c526139b7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
         "type": "github"
       }
     },
@@ -155,6 +211,9 @@
     },
     "root": {
       "inputs": {
+        "flake-parts": "flake-parts",
+        "home-manager": "home-manager",
+        "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "nix-darwin": "nix-darwin",
