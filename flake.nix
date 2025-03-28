@@ -7,6 +7,9 @@
     nix-darwin.url = "github:LnL7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     homebrew-core.url = "github:homebrew/homebrew-core";
     homebrew-core.flake = false;
@@ -16,7 +19,7 @@
     homebrew-bundle.flake = false;
   };
 
-  outputs = inputs@{ self, nix-darwin, nix-homebrew, nixpkgs, ... }:
+  outputs = inputs@{ self, nix-darwin, nix-homebrew, home-manager, nixpkgs, ... }:
   let
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
@@ -93,13 +96,18 @@
         onActivation.upgrade = true;
       };
     };
-  in
-  {
+  in {
+    imports = [
+      ./home/orchard.nix
+    ];
+    
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."honeycrisp" = nix-darwin.lib.darwinSystem {
       modules = [
         nix-homebrew.darwinModules.nix-homebrew
+        home-manager.darwinModules.home-manager
+        self.darwinModules.honeycrisp-home
         configuration
       ];
     };
