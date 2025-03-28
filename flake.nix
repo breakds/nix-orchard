@@ -27,6 +27,7 @@
 
     imports = [
       ./modules/part.nix
+      ./home/orchard.nix
       ./machines/honeycrisp/part.nix
     ];
 
