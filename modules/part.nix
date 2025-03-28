@@ -52,6 +52,7 @@ in {
           imports = [
             ./home-honeycrisp/ssh.nix
             ./home-honeycrisp/zsh.nix
+            ./home-honeycrisp/git.nix
           ];
 
           programs.direnv = {
