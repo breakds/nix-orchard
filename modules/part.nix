@@ -61,6 +61,13 @@ in {
             enableZshIntegration = true;
           };
 
+          programs.fzf = {
+            enable = true;
+            enableBashIntegration = true;
+            enableZshIntegration = true;
+            defaultOptions = [ "--height 50%" "--border" ];
+          };
+
           home.stateVersion = "25.05";
         };
       };
