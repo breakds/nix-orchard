@@ -1,6 +1,8 @@
 { inputs, ... }:
 
-{
+let self = inputs.self;
+
+in {
   flake.darwinModules = {
     darwin-version = { pkgs, ... }: {
       # Set Git commit hash for darwin-version.      
