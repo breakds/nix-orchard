@@ -47,6 +47,7 @@
       system.defaults = {
         dock.autohide = true;
         NSGlobalDomain.AppleICUForce24HourTime = true;
+        ".GlobalPreferences"."com.apple.mouse.scaling" = 2.0;
       };
 
       # Install the fonts
