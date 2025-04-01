@@ -50,6 +50,7 @@
       "iina"
       "windsurf"
       "visual-studio-code"
+      "karabiner-elements"
     ];
   };
 }
