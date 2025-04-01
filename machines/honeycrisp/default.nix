@@ -45,6 +45,7 @@
     brews = [
       "mas"
       "imagemagick"
+      "windsurf"
     ];
     casks = [
       "iina"
