@@ -53,6 +53,7 @@ in {
             ./home-honeycrisp/ssh.nix
             ./home-honeycrisp/zsh.nix
             ./home-honeycrisp/git.nix
+            ./home-honeycrisp/karabiner  # keybindings            
           ];
 
           programs.direnv = {
