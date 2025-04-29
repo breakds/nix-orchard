@@ -51,6 +51,7 @@
       "windsurf"
       "visual-studio-code"
       "karabiner-elements"
+      "rustdesk"
     ];
   };
 }
