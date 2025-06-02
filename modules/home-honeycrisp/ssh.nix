@@ -127,6 +127,12 @@ in {
           hostname = "54.208.118.154";
           user = "ubuntu";
         };
+
+        "orchard" = {
+          hostname = "10.77.1.157";
+          user = "cassandra";
+          identityFile = "~/.ssh/cassandra_zen";
+        };
       };
     };
   };
