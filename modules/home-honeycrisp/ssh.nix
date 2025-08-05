@@ -133,6 +133,12 @@ in {
           user = "cassandra";
           identityFile = "~/.ssh/cassandra_zen";
         };
+
+        "pool-v6-prod" = {
+          hostname = "44.205.53.35";
+          user = "ubuntu";
+          identityFile = "~/.ssh/a2s-public-1.pem";
+        };
       };
     };
   };
