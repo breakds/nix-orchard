@@ -24,6 +24,7 @@
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  system.primaryUser = "cassandra";
   system.defaults = {
     dock.autohide = true;
     NSGlobalDomain.AppleICUForce24HourTime = true;
