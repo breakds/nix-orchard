@@ -1,13 +1,17 @@
 { inputs, ... }:
 
-let self = inputs.self;
-    nix-darwin = inputs.nix-darwin;
-    nix-homebrew = inputs.nix-homebrew;
-    home-manager = inputs.home-manager;
-
+let
+  inherit (inputs) self nix-darwin nix-homebrew home-manager ml-pkgs;
 in {
   flake.darwinConfigurations."honeycrisp" = nix-darwin.lib.darwinSystem {
     modules = [
+      ({pkgs, ... }: {
+        nixpkgs = {
+          overlays = [
+            ml-pkgs.overlays.gen-ai
+          ];
+        };
+      })
       home-manager.darwinModules.home-manager
       self.darwinModules.darwin-version
       self.darwinModules.homebrew
