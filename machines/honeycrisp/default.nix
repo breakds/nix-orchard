@@ -8,6 +8,7 @@
     git
     lsd
     bat
+    codex
   ];
 
   # Necessary for using flakes on this system.

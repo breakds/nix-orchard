@@ -70,6 +70,9 @@ in {
             defaultOptions = [ "--height 50%" "--border" ];
           };
 
+          xdg.enable = true;
+          xdg.configFile."codex/config.toml".source = ./home-honeycrisp/codex/config.toml;
+
           home.stateVersion = "25.05";
         };
       };
