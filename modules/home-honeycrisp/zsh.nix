@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   home.file = {
@@ -10,6 +10,7 @@
 
   programs.zsh = {
     enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
 
     oh-my-zsh = {
       enable = true;
@@ -50,7 +51,7 @@
     syntaxHighlighting.enable = true;
     defaultKeymap = "emacs";
 
-    initExtra = ''
+    initContent = ''
       # I do not like accepting autosuggestions with right arrow (i.e.
       # forward-char). Only keep end-of-line here.
 

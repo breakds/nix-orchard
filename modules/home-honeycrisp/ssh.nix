@@ -7,11 +7,12 @@ in {
   config = {
     programs.ssh = {
       enable = true;
-      hashKnownHosts = true;
+      enableDefaultConfig = false;
 
       matchBlocks = {
         "*" = {
           identityFile = cassandra-rsa;
+          hashKnownHosts = true;
         };
 
         "github.com" = {
