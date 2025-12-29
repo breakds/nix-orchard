@@ -3,7 +3,7 @@
 {
   programs.git = {
     enable = true;
-    package = lib.mkDefault pkgs.gitAndTools.gitFull;
+    package = lib.mkDefault pkgs.gitFull;
     userName = lib.mkDefault "Shan Qi";
     userEmail = lib.mkDefault "cassandraqs@gmail.com";
 
