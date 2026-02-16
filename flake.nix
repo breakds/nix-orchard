@@ -10,7 +10,7 @@
     nix-darwin.url = "github:LnL7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    ml-pkgs.url = "github:nixvital/ml-pkgs";
+    ml-pkgs.url = "github:nixvital/ml-pkgs/dev/orchard-codex";
     ml-pkgs.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
