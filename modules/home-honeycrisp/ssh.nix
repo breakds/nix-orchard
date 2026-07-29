@@ -9,136 +9,138 @@ in {
       enable = true;
       enableDefaultConfig = false;
 
-      matchBlocks = {
+      # Blocks use upstream ssh_config(5) directive names. The "*" block is
+      # always emitted last, so the more specific blocks below win.
+      settings = {
         "*" = {
-          identityFile = cassandra-rsa;
-          hashKnownHosts = true;
+          IdentityFile = cassandra-rsa;
+          HashKnownHosts = true;
         };
 
         "github.com" = {
-          identityFile = cassandra-zen;
-          user = "git";
+          IdentityFile = cassandra-zen;
+          User = "git";
         };
 
         "bitbucket.org" = {
-          identityFile = cassandra-zen;
-          user = "git";
+          IdentityFile = cassandra-zen;
+          User = "git";
         };
 
         "flash-v3-dev" = {
-          hostname = "10.0.151.39";
-          user = "ec2-user";
-          identityFile = "~/.ssh/a2s-private-1.pem";
+          HostName = "10.0.151.39";
+          User = "ec2-user";
+          IdentityFile = "~/.ssh/a2s-private-1.pem";
         };
 
         "10.0.47.81" = {
-          hostname = "10.0.47.81";
-          user = "ubuntu";
+          HostName = "10.0.47.81";
+          User = "ubuntu";
         };
 
         "3.220.193.183" = {
-          hostname = "3.220.193.183";
-          user = "ubuntu";
+          HostName = "3.220.193.183";
+          User = "ubuntu";
         };
 
         "3.210.226.122" = {
-          hostname = "3.210.226.122";
-          user = "ubuntu";
-          forwardAgent = true;
+          HostName = "3.210.226.122";
+          User = "ubuntu";
+          ForwardAgent = true;
         };
 
         "3.223.244.153" = {
-          hostname = "3.223.244.153";
-          user = "ec2-user";
+          HostName = "3.223.244.153";
+          User = "ec2-user";
         };
 
         "pool-v6-dev" = {
-          hostname = "10.0.16.6";
-          user = "ubuntu";
-          identityFile = "~/.ssh/a2s-public-1.pem";
+          HostName = "10.0.16.6";
+          User = "ubuntu";
+          IdentityFile = "~/.ssh/a2s-public-1.pem";
         };
 
         "cube_service" = {
-          hostname = "10.0.47.81";
-          user = "ubuntu";
-          identityFile = "~/.ssh/a2s-private-1.pem";
+          HostName = "10.0.47.81";
+          User = "ubuntu";
+          IdentityFile = "~/.ssh/a2s-private-1.pem";
         };
 
         "flash-v6-dev" = {
-          hostname = "10.0.26.247";
-          user = "ec2-user";
-          identityFile = "~/.ssh/a2s-public-1.pem";
+          HostName = "10.0.26.247";
+          User = "ec2-user";
+          IdentityFile = "~/.ssh/a2s-public-1.pem";
         };
 
         "flash-v6-prod" = {
-          hostname = "18.215.42.206";
-          user = "ec2-user";
-          identityFile = "~/.ssh/a2s-public-1.pem";
+          HostName = "18.215.42.206";
+          User = "ec2-user";
+          IdentityFile = "~/.ssh/a2s-public-1.pem";
         };
 
         "a2s-loader-batch" = {
-          hostname = "10.0.151.39";
-          user = "ubuntu";
-          identityFile = "~/.ssh/a2s-public-1.pem";
+          HostName = "10.0.151.39";
+          User = "ubuntu";
+          IdentityFile = "~/.ssh/a2s-public-1.pem";
         };
 
         "flash-v3-prod" = {
-          hostname = "52.23.15.34";
-          user = "ubuntu";
+          HostName = "52.23.15.34";
+          User = "ubuntu";
         };
 
         "Flash-controller-v6" = {
-          hostname = "3.232.126.254";
-          user = "ubuntu";
+          HostName = "3.232.126.254";
+          User = "ubuntu";
         };
 
         "shell-DEV" = {
-          hostname = "52.20.31.77";
-          user = "ubuntu";
-          forwardAgent = true;
+          HostName = "52.20.31.77";
+          User = "ubuntu";
+          ForwardAgent = true;
         };
 
         "shell-PROD" = {
-          hostname = "18.211.151.230";
-          user = "ubuntu";
-          forwardAgent = true;
+          HostName = "18.211.151.230";
+          User = "ubuntu";
+          ForwardAgent = true;
         };
 
         "voyager38" = {
-          hostname = "18.215.164.197";
-          user = "ubuntu";
+          HostName = "18.215.164.197";
+          User = "ubuntu";
         };
 
         "general-purpose-host" = {
-          hostname = "10.0.136.104";
-          user = "ubuntu";
+          HostName = "10.0.136.104";
+          User = "ubuntu";
         };
 
         "sbng-host" = {
-          hostname = "34.225.255.153";
-          user = "ubuntu";
+          HostName = "34.225.255.153";
+          User = "ubuntu";
         };
 
         "sbng-PROD" = {
-          hostname = "23.20.131.52";
-          user = "ubuntu";
+          HostName = "23.20.131.52";
+          User = "ubuntu";
         };
 
         "voyager-dev" = {
-          hostname = "54.208.118.154";
-          user = "ubuntu";
+          HostName = "54.208.118.154";
+          User = "ubuntu";
         };
 
         "orchard" = {
-          hostname = "10.77.1.157";
-          user = "cassandra";
-          identityFile = "~/.ssh/cassandra_zen";
+          HostName = "10.77.1.157";
+          User = "cassandra";
+          IdentityFile = "~/.ssh/cassandra_zen";
         };
 
         "pool-v6-prod" = {
-          hostname = "44.205.53.35";
-          user = "ubuntu";
-          identityFile = "~/.ssh/a2s-public-1.pem";
+          HostName = "44.205.53.35";
+          User = "ubuntu";
+          IdentityFile = "~/.ssh/a2s-public-1.pem";
         };
       };
     };
