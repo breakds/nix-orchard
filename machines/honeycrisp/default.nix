@@ -8,8 +8,6 @@
     git
     lsd
     bat
-    codex
-    claude-code
   ];
 
   # Necessary for using flakes on this system.
