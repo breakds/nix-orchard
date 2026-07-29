@@ -21,10 +21,13 @@ in {
           enable = true;
           enableRosetta = true;
 
+          # homebrew/homebrew-bundle is deliberately absent: the tap was
+          # archived after `brew bundle` moved into Homebrew itself, so
+          # tapping it pins a dead repository that Homebrew then tries to
+          # write to inside the read-only Nix store.
           taps = {
             "homebrew/homebrew-core" = inputs.homebrew-core;
             "homebrew/homebrew-cask" = inputs.homebrew-cask;
-            "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
           };
 
           # Fully declarative tap management. Taps can no longer be added
