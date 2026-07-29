@@ -39,7 +39,8 @@ in {
       };
     };
 
-    home-honeycrisp = { pkgs, ... }: {
+    # Cassandra's home environment, shared by every machine she uses.
+    home-cassandra = { pkgs, ... }: {
       config = {
         users.users.cassandra = {
           name = "cassandra";
@@ -50,10 +51,10 @@ in {
         home-manager.useUserPackages = true;
         home-manager.users.cassandra = {config, pkgs, ... }: {
           imports = [
-            ./home-honeycrisp/ssh.nix
-            ./home-honeycrisp/zsh.nix
-            ./home-honeycrisp/git.nix
-            ./home-honeycrisp/karabiner  # keybindings            
+            ./home-cassandra/ssh.nix
+            ./home-cassandra/zsh.nix
+            ./home-cassandra/git.nix
+            ./home-cassandra/karabiner  # keybindings
           ];
 
           programs.direnv = {

@@ -8,7 +8,7 @@ in {
       home-manager.darwinModules.home-manager
       self.darwinModules.darwin-version
       self.darwinModules.homebrew
-      self.darwinModules.home-honeycrisp
+      self.darwinModules.home-cassandra
       ./.
     ];
   };
