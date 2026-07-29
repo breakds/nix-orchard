@@ -4,6 +4,8 @@ let self = inputs.self;
 
 in {
   flake.darwinModules = {
+    common = import ./common.nix;
+
     darwin-version = { pkgs, ... }: {
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
