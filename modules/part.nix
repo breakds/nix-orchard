@@ -11,7 +11,7 @@ in {
       system.configurationRevision = self.rev or self.dirtyRev or null;
     };
 
-    homebrew = { pkgs, ... }: {
+    homebrew = { config, pkgs, ... }: {
       imports = [
         inputs.nix-homebrew.darwinModules.nix-homebrew
       ];
@@ -37,6 +37,14 @@ in {
 
         homebrew = {
           enable = true;
+
+          # The Brewfile must declare the taps nix-homebrew provides.
+          # `onActivation.cleanup` runs `brew bundle cleanup`, which removes
+          # anything the Brewfile does not mention -- taps included -- so
+          # leaving this unset makes activation try to untap homebrew/cask
+          # on every run.
+          taps = builtins.attrNames config.nix-homebrew.taps;
+
           onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
           onActivation.upgrade = true;
