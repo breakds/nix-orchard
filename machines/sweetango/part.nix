@@ -1,9 +1,9 @@
 { inputs, ... }:
 
 let
-  inherit (inputs) self nix-darwin nix-homebrew home-manager;
+  inherit (inputs) self nix-darwin home-manager;
 in {
-  flake.darwinConfigurations."honeycrisp" = nix-darwin.lib.darwinSystem {
+  flake.darwinConfigurations."sweetango" = nix-darwin.lib.darwinSystem {
     modules = [
       home-manager.darwinModules.home-manager
       self.darwinModules.common

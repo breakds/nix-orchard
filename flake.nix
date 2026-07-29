@@ -7,16 +7,13 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
 
-    nix-darwin.url = "github:LnL7/nix-darwin/master";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-
-    ml-pkgs.url = "github:nixvital/ml-pkgs/dev/orchard-codex";
-    ml-pkgs.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     homebrew-core.url = "github:homebrew/homebrew-core";
     homebrew-core.flake = false;
     homebrew-cask.url = "github:homebrew/homebrew-cask";
@@ -29,8 +26,13 @@
     systems = [ "aarch64-darwin" ];
 
     imports = [
+      # Declares `flake.darwinConfigurations` as an option, so that each
+      # machine can contribute its own entry from its own module.
+      inputs.nix-darwin.flakeModules.default
+
       ./modules/part.nix
       ./machines/honeycrisp/part.nix
+      ./machines/sweetango/part.nix
     ];
 
     # Build darwin flake using:

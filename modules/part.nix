@@ -4,6 +4,8 @@ let self = inputs.self;
 
 in {
   flake.darwinModules = {
+    common = import ./common.nix;
+
     darwin-version = { pkgs, ... }: {
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -39,7 +41,8 @@ in {
       };
     };
 
-    home-honeycrisp = { pkgs, ... }: {
+    # Cassandra's home environment, shared by every machine she uses.
+    home-cassandra = { pkgs, ... }: {
       config = {
         users.users.cassandra = {
           name = "cassandra";
@@ -50,10 +53,10 @@ in {
         home-manager.useUserPackages = true;
         home-manager.users.cassandra = {config, pkgs, ... }: {
           imports = [
-            ./home-honeycrisp/ssh.nix
-            ./home-honeycrisp/zsh.nix
-            ./home-honeycrisp/git.nix
-            ./home-honeycrisp/karabiner  # keybindings            
+            ./home-cassandra/ssh.nix
+            ./home-cassandra/zsh.nix
+            ./home-cassandra/git.nix
+            ./home-cassandra/karabiner  # keybindings
           ];
 
           programs.direnv = {
@@ -71,7 +74,6 @@ in {
           };
 
           xdg.enable = true;
-          xdg.configFile."codex/config.toml".source = ./home-honeycrisp/codex/config.toml;
 
           home.stateVersion = "25.05";
         };
