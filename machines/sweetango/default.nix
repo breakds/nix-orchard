@@ -14,6 +14,10 @@
   networking.hostName = "sweetango";
   networking.computerName = "sweetango";
 
+  # This machine's macOS account was set up as "shanqi" rather than the
+  # usual "cassandra".
+  orchard.username = "shanqi";
+
   # Fresh installation, so this starts at the current maximum rather than
   # inheriting honeycrisp's 6.
   # $ darwin-rebuild changelog

@@ -41,17 +41,21 @@ in {
       };
     };
 
-    # Cassandra's home environment, shared by every machine she uses.
-    home-cassandra = { pkgs, ... }: {
+    # Cassandra's home environment, shared by every machine she uses. The
+    # account short name varies per machine, so it comes from the config
+    # rather than being spelled out here.
+    home-cassandra = { config, pkgs, ... }: let
+      username = config.orchard.username;
+    in {
       config = {
-        users.users.cassandra = {
-          name = "cassandra";
-          home = "/Users/cassandra";
+        users.users.${username} = {
+          name = username;
+          home = "/Users/${username}";
         };
 
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.cassandra = {config, pkgs, ... }: {
+        home-manager.users.${username} = {config, pkgs, ... }: {
           imports = [
             ./home-cassandra/ssh.nix
             ./home-cassandra/zsh.nix
