@@ -151,6 +151,12 @@ in {
           User = "ubuntu";
           IdentityFile = "~/.ssh/a2s-public-1.pem";
         };
+
+        "malenia" = {
+          HostName = "10.77.1.185";
+          User = "breakds";
+          IdentityFile = "~/.ssh/one_time_20260910";
+        };
       };
     };
   };
