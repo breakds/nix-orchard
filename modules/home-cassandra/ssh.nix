@@ -86,6 +86,12 @@ in {
           ProxyJump = jump-host;
         };
 
+        "flash3-dev" = {
+          HostName = "10.0.29.194";
+          User = "ec2-user";
+          ProxyJump = jump-host;
+        };
+
         "flash-v6-prod" = {
           HostName = "18.215.42.206";
           User = "ec2-user";
