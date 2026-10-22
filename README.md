@@ -15,8 +15,9 @@ Nix and Home Manager configurations for our Macs.
 - `modules/home-<person>/`: personal home settings.
 
 Each machine sets `system.primaryUser` to an existing macOS account. Home Manager
-and Homebrew use that account. `honeycrisp` starts with zsh and Ghostty, installed
-and configured through Home Manager. Rosetta Homebrew is enabled only on `sweetango`.
+and Homebrew use that account. `honeycrisp` starts with zsh, Starship, and Ghostty,
+installed and configured through Home Manager. Rosetta Homebrew is enabled only
+on `sweetango`.
 
 ## First installation on honeycrisp
 

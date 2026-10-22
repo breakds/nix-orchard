@@ -1,6 +1,17 @@
 { pkgs, ... }:
 
 {
+  imports = [ ./starship.nix ];
+
+  home.packages = with pkgs; [
+    ripgrep
+    zstd
+    btop
+    hunk
+    lsd
+    bat
+  ];
+
   programs.zsh.enable = true;
   xdg.enable = true;
 
