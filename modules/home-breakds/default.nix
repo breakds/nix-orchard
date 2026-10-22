@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./starship.nix ];
+  imports = [
+    ./git.nix
+    ./ssh.nix
+    ./starship.nix
+  ];
 
   home.packages = with pkgs; [
     ripgrep

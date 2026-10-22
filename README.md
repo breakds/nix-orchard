@@ -80,6 +80,34 @@ Homebrew upgrades declared packages during activation and removes undeclared one
 with `"zap"` cleanup, including associated files for casks. Homebrew and its taps
 are updated through the flake inputs.
 
+## Git and SSH on honeycrisp
+
+SSH uses `~/.ssh/breakds_honeycrisp` as its default identity. Git uses the same key
+to sign commits and tags. The personal Git email is `breakds@gmail.com`; repositories
+under `~/projects/psynk.ai/` use `breakds@psynk.ai`.
+
+Copy the private and public key files from `claw` into `~/.ssh/` on `honeycrisp`, then
+set their permissions:
+
+```sh
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/breakds_honeycrisp
+chmod 644 ~/.ssh/breakds_honeycrisp.pub
+```
+
+The key was generated without a passphrase. To add one on `honeycrisp`, run:
+
+```sh
+ssh-keygen -p -f ~/.ssh/breakds_honeycrisp
+```
+
+Add the `.pub` key to [GitHub](https://github.com/settings/keys) twice: once as an
+authentication key and once as a signing key. After activation, test authentication:
+
+```sh
+ssh -T git@github.com
+```
+
 ## References
 
 1. [Dreams of Autonomy's introduction to nix-darwin video](https://www.youtube.com/watch?v=Z8BL8mdzWHI)
