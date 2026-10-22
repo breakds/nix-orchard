@@ -46,7 +46,8 @@ in {
           taps = builtins.attrNames config.nix-homebrew.taps;
 
           onActivation.cleanup = "zap";
-          onActivation.autoUpdate = true;
+          # Update Homebrew and its pinned taps through the flake inputs.
+          onActivation.autoUpdate = false;
           onActivation.upgrade = true;
         };
       };
