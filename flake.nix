@@ -1,5 +1,5 @@
 {
-  description = "Cassandra's nix-darwin system flake";
+  description = "nix-orchard macOS configurations";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -29,6 +29,7 @@
       inputs.nix-darwin.flakeModules.default
 
       ./modules/part.nix
+      ./machines/honeycrisp/part.nix
       ./machines/sweetango/part.nix
     ];
 

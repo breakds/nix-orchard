@@ -1,8 +1,6 @@
-{ ... }:
+{ pkgs, ... }:
 
-# sweetango: MacBook Air M5. Everything Cassandra's machines have in common
-# lives in modules/common.nix; laptop-specific settings (trackpad, battery
-# indicator, sleep timings) belong here if they are ever wanted.
+# sweetango: Cassandra's MacBook Air M5.
 
 {
   # Apple Silicon.
@@ -13,9 +11,30 @@
   networking.hostName = "sweetango";
   networking.computerName = "sweetango";
 
-  # This machine's macOS account was set up as "shanqi" rather than the
-  # usual "cassandra".
-  orchard.username = "shanqi";
+  system.primaryUser = "shanqi";
+
+  environment.systemPackages = with pkgs; [
+    iterm2
+    git
+    lsd
+    bat
+  ];
+
+  system.defaults = {
+    dock.autohide = true;
+    NSGlobalDomain.AppleICUForce24HourTime = true;
+    ".GlobalPreferences"."com.apple.mouse.scaling" = 2.0;
+  };
+
+  nix-homebrew.enableRosetta = true;
+  homebrew = {
+    brews = [ "mas" ];
+    casks = [
+      "iina"
+      "visual-studio-code"
+      "karabiner-elements"
+    ];
+  };
 
   # Used for backwards compatibility; read the changelog before changing.
   # $ darwin-rebuild changelog

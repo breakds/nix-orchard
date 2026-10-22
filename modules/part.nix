@@ -19,7 +19,6 @@ in {
       config = {
         nix-homebrew = {
           enable = true;
-          enableRosetta = true;
 
           # homebrew/homebrew-bundle is deliberately absent: the tap was
           # archived after `brew bundle` moved into Homebrew itself, so
@@ -53,47 +52,38 @@ in {
       };
     };
 
-    # Cassandra's home environment, shared by every machine she uses. The
-    # account short name varies per machine, so it comes from the config
-    # rather than being spelled out here.
-    home-cassandra = { config, pkgs, ... }: let
-      username = config.orchard.username;
-    in {
-      config = {
-        users.users.${username} = {
-          name = username;
-          home = "/Users/${username}";
+    # Personal home settings apply to the account selected by each machine.
+    home-cassandra = { config, ... }: {
+      home-manager.users.${config.system.primaryUser} = { ... }: {
+        imports = [
+          ./home-cassandra/ssh.nix
+          ./home-cassandra/zsh.nix
+          ./home-cassandra/git.nix
+          ./home-cassandra/karabiner  # keybindings
+        ];
+
+        programs.direnv = {
+          enable = true;
+          nix-direnv.enable = true;
+          enableBashIntegration = true;
+          enableZshIntegration = true;
         };
 
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.${username} = {config, pkgs, ... }: {
-          imports = [
-            ./home-cassandra/ssh.nix
-            ./home-cassandra/zsh.nix
-            ./home-cassandra/git.nix
-            ./home-cassandra/karabiner  # keybindings
-          ];
-
-          programs.direnv = {
-            enable = true;
-            nix-direnv.enable = true;
-            enableBashIntegration = true;
-            enableZshIntegration = true;
-          };
-
-          programs.fzf = {
-            enable = true;
-            enableBashIntegration = true;
-            enableZshIntegration = true;
-            defaultOptions = [ "--height 50%" "--border" ];
-          };
-
-          xdg.enable = true;
-
-          home.stateVersion = "25.05";
+        programs.fzf = {
+          enable = true;
+          enableBashIntegration = true;
+          enableZshIntegration = true;
+          defaultOptions = [ "--height 50%" "--border" ];
         };
+
+        xdg.enable = true;
+
+        home.stateVersion = "25.05";
       };
+    };
+
+    home-breakds = { config, ... }: {
+      home-manager.users.${config.system.primaryUser} = import ./home-breakds;
     };
   };
 }
