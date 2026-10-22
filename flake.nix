@@ -29,15 +29,14 @@
       inputs.nix-darwin.flakeModules.default
 
       ./modules/part.nix
-      ./machines/honeycrisp/part.nix
       ./machines/sweetango/part.nix
     ];
 
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#honeycrisp
+    # $ darwin-rebuild build --flake .#sweetango
 
     # Switch to it using:
-    # $ darwin-rebuild switch --flake .#honecrisp
+    # $ sudo darwin-rebuild switch --flake .#sweetango
 
   };
 }

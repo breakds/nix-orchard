@@ -5,8 +5,7 @@
 # indicator, sleep timings) belong here if they are ever wanted.
 
 {
-  # The platform the configuration will be used on. Apple Silicon, same as
-  # honeycrisp.
+  # Apple Silicon.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   # localHostName defaults to hostName, and it is what `darwin-rebuild`
@@ -18,8 +17,7 @@
   # usual "cassandra".
   orchard.username = "shanqi";
 
-  # Fresh installation, so this starts at the current maximum rather than
-  # inheriting honeycrisp's 6.
+  # Used for backwards compatibility; read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 7;
 }
