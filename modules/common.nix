@@ -55,7 +55,6 @@
     homebrew = {
       brews = [
         "mas"
-        "imagemagick"
       ];
       casks = [
         "iina"
