@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 # honeycrisp: Break's Mac Mini M4, freshly reset.
 
@@ -9,6 +9,8 @@
   networking.computerName = "honeycrisp";
 
   system.primaryUser = "breakds";
+
+  environment.systemPackages = [ pkgs.localsend ];
 
   # Fresh installation; keep this value when updating inputs.
   system.stateVersion = 7;
