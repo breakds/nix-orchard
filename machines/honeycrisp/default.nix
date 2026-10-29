@@ -12,6 +12,8 @@
 
   environment.systemPackages = [ pkgs.localsend ];
 
+  homebrew.casks = [ "orcaslicer" ];
+
   # Fresh installation; keep this value when updating inputs.
   system.stateVersion = 7;
 }
