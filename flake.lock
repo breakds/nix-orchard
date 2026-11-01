@@ -128,6 +128,29 @@
         "type": "github"
       }
     },
+    "nixos-home": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793561375,
+        "narHash": "sha256-KXL0ZU0KE6Xknv8Qrorwj66vKdBo5iE5BMo9blHZ0es=",
+        "owner": "breakds",
+        "repo": "nixos-home",
+        "rev": "1242833c2ac3381f6d58bfc5e06c1ca3c2ed05a3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "breakds",
+        "repo": "nixos-home",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1792506237,
@@ -152,6 +175,7 @@
         "homebrew-core": "homebrew-core",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
+        "nixos-home": "nixos-home",
         "nixpkgs": "nixpkgs"
       }
     }

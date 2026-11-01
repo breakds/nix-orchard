@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 # honeycrisp: Break's Mac Mini M4, freshly reset.
 
@@ -9,6 +9,11 @@
   networking.computerName = "honeycrisp";
 
   system.primaryUser = "breakds";
+
+  home-manager.users.${config.system.primaryUser} = { config, lib, ... }: {
+    services.syncthing.settings.folders.workspace.path =
+      lib.mkForce "${config.home.homeDirectory}/workspace";
+  };
 
   environment.systemPackages = [ pkgs.localsend ];
 

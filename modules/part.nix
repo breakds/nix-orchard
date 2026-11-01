@@ -83,7 +83,14 @@ in {
     };
 
     home-breakds = { config, ... }: {
-      home-manager.users.${config.system.primaryUser} = import ./home-breakds;
+      home-manager.users.${config.system.primaryUser} = {
+        imports = [
+          ./home-breakds
+          inputs.nixos-home.homeModules.syncthing
+        ];
+
+        services.syncthing.enable = true;
+      };
     };
   };
 }

@@ -80,6 +80,34 @@ Homebrew upgrades declared packages during activation and removes undeclared one
 with `"zap"` cleanup, including associated files for casks. Homebrew and its taps
 are updated through the flake inputs.
 
+## Syncthing on honeycrisp
+
+`home-breakds` imports `homeModules.syncthing` from `github:breakds/nixos-home`
+and enables the service. Its Nixpkgs and Home Manager inputs follow this flake's
+versions; the standalone Linux flake keeps its own pins and existing host
+configuration.
+
+The shared module owns the devices, folder ID `workspace`, and versioning policy.
+On `honeycrisp`, a machine-specific override sets the folder to
+`/Users/breakds/workspace`; Linux hosts keep `~/syncthing/workspace`. Home Manager
+runs Syncthing through a per-user launchd agent; the web interface is at
+<http://127.0.0.1:8384>.
+
+After activation, get `honeycrisp`'s device ID from the web interface, add it to
+the shared module's `settings.devices` and `settings.folders.workspace.devices`,
+and rebuild the participating Linux hosts and this Mac. The shared configuration
+overrides devices and folders added only through the web interface.
+
+After publishing shared configuration changes in `nixos-home`, run
+`nix flake update nixos-home` before rebuilding. To try unpublished changes from
+the sibling checkout, build with a local input override:
+
+```sh
+darwin-rebuild build --flake .#honeycrisp \
+  --override-input nixos-home "path:$(cd ../nixos-home && pwd)" \
+  --no-write-lock-file
+```
+
 ## Git and SSH on honeycrisp
 
 SSH uses `~/.ssh/breakds_honeycrisp` as its default identity. Git uses the same key
